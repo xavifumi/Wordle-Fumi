@@ -59,7 +59,7 @@ function creaMapa(){
 creaMapa();
 
 window.onload = function() {
-    var input = document.getElementById("teclat").focus();
+    document.getElementById("teclat").focus();
   }
 
 //Escolta de tecles polsades
