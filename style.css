@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Lobster&family=Raleway:wght@400;700&display=swap");
 body {
+  margin: 0;
   height: 100vh;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: uppercase;
@@ -68,4 +69,19 @@ h2 {
   background-color: grey;
   border: solid 2px darkgray;
   color: white;
+}
+
+.error {
+  position: relative;
+  animation: shake 0.1s linear;
+  animation-iteration-count: 2;
+}
+
+@keyframes shake {
+  0% {
+    left: -5px;
+  }
+  100% {
+    right: -5 px;
+  }
 }
