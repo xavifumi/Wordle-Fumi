@@ -122,28 +122,35 @@ h2 {
 
 @media only screen and (max-width: 1000px) and (orientation: portrait) {
   body {
-    font-size: 3rem;
+    font-size: 1.5rem;
   }
 
   .contenidor {
-    border-width: 3px;
-    width: 4rem;
-    height: 4rem;
+    border-width: 1px;
+    width: 2rem;
+    height: 2rem;
   }
 
   #teclat {
     width: 95%;
-    bottom: 30px;
+    bottom: 10px;
   }
   .tecles {
     margin-top: 5px;
   }
 
   .tecla {
-    height: 5rem;
-    margin: 0.2rem 0.2rem;
+    height: 3rem;
+    margin: 0 0.1rem;
     border-radius: 10px;
-    font-size: 2rem;
+    border-width: 1px;
+    font-size: 1rem;
+  }
+
+  #fila2 .tecla:first-child,
+  #fila2 .tecla:last-child {
+    flex: 1.5;
+    font-size: 0.7rem;
   }
 }
 

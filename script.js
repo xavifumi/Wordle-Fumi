@@ -81,7 +81,7 @@ creaMapa();
 
 //prova de posar focus en l'input amagat perquè aparegui teclat
 window.onload = function() {
-    document.getElementById("noTeclat").focus();
+ //   document.getElementById("noTeclat").focus();
     generaTecles();
 }
 
