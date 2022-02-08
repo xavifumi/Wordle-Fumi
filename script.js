@@ -134,6 +134,7 @@ function checkParaula(){
                     setTimeout(() => {
                         if (paraula[i]=== resposta[i]){
                             liniaActual.children[i].classList.add('correcte');
+                            document.getElementById(paraula[i]).classList.remove('nope', 'casi');
                             document.getElementById(paraula[i]).classList.add('correcte');
                             encerts++;
                             mapaTemp[paraula[i]]--;
@@ -142,7 +143,10 @@ function checkParaula(){
                                 console.log(mapaTemp)
                                 if (paraula[i] === resposta[j] && i !== j && mapaTemp[paraula[i]] > 0){
                                     liniaActual.children[i].classList.add('casi');
-                                    document.getElementById(paraula[i]).classList.add('casi');
+                                    document.getElementById(paraula[i]).classList.remove('nope');
+                                    if(!document.getElementById(paraula[i]).classList.contains('correcte')){
+                                        document.getElementById(paraula[i]).classList.add('casi');
+                                    }
                                     mapaTemp[paraula[i]]--;
                                 }                       
                             }
@@ -153,7 +157,9 @@ function checkParaula(){
                     setTimeout(() => {
                         if(!liniaActual.children[i].classList.contains('correcte') && !liniaActual.children[i].classList.contains('casi') ){
                             liniaActual.children[i].classList.add('nope');
-                            document.getElementById(paraula[i]).classList.add('nope');
+                            if(!document.getElementById(paraula[i]).classList.contains('correcte', 'casi')){
+                                document.getElementById(paraula[i]).classList.add('nope');
+                            }
                         };
                         liniaActual.children[i].style.transform = "rotateY(0deg)";  
                     }, 201);
