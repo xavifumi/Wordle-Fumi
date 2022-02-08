@@ -17,12 +17,12 @@ function generaTecles(){
         for (tecla in teclat[fila]){
             teclatHTML.children[fila].innerHTML +=
             `
-            <button id="${teclat[fila][tecla]}" class="tecla" onclick="ompleQuadre(this.innerText)">${teclat[fila][tecla]}</button>
+            <button id="${teclat[fila][tecla]}" class="tecla" onmousedown="ompleQuadre(this.innerText)">${teclat[fila][tecla]}</button>
             `
         }
     }
-    teclatHTML.children[2].firstElementChild.onclick = function(){checkParaula()};
-    teclatHTML.children[2].lastElementChild.onclick = function(){buidaQuadre()};
+    teclatHTML.children[2].firstElementChild.onmousedown = function(){checkParaula()};
+    teclatHTML.children[2].lastElementChild.onmousedown = function(){buidaQuadre()};
 
 }
 

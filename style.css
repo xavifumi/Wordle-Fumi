@@ -57,10 +57,10 @@ h2 {
 }
 
 #teclat {
+  position: absolute;
   align-self: center;
-  width: 50%;
-  margin-top: auto;
-  margin-bottom: 10px;
+  width: 600px;
+  bottom: 10px;
   display: flex;
   flex-direction: column;
 }
@@ -120,19 +120,20 @@ h2 {
   animation-iteration-count: 2;
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1000px) and (orientation: portrait) {
   body {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 
   .contenidor {
     border-width: 3px;
-    width: 7rem;
-    height: 7rem;
+    width: 8rem;
+    height: 8rem;
   }
 
   #teclat {
     width: 95%;
+    bottom: 30px;
   }
   .tecles {
     margin-top: 10px;
@@ -142,7 +143,7 @@ h2 {
     height: 9rem;
     margin: 0.2rem 0.5rem;
     border-radius: 20px;
-    font-size: 3rem;
+    font-size: 2rem;
   }
 }
 
