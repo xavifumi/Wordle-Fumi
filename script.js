@@ -4,6 +4,27 @@ var intents = 0;
 var diccionari;
 var resposta ;
 var encerts = 0;
+var teclat = [
+    ["Q","W","E","R","T","Y","U","I","O","P"],
+    ["A","S","D","F","G","H","J","K","L","Ç"],
+    ["ENTER","Z","X","C","V","B","N","M","DEL"]
+]
+
+
+function generaTecles(){
+    let teclatHTML = document.getElementById('teclat');
+    for (fila in teclat){
+        for (tecla in teclat[fila]){
+            teclatHTML.children[fila].innerHTML +=
+            `
+            <button id="${teclat[fila][tecla]}" class="tecla" onclick="ompleQuadre(this.innerText)">${teclat[fila][tecla]}</button>
+            `
+        }
+    }
+    teclatHTML.children[2].firstElementChild.onclick = function(){checkParaula()};
+    teclatHTML.children[2].lastElementChild.onclick = function(){buidaQuadre()};
+
+}
 
 
 //Obre el diccionari d'un txt i recollim els de 5 lletres
@@ -58,23 +79,30 @@ function creaMapa(){
 }
 creaMapa();
 
+//prova de posar focus en l'input amagat perquè aparegui teclat
 window.onload = function() {
-    document.getElementById("teclat").focus();
-  }
+    document.getElementById("noTeclat").focus();
+    generaTecles();
+}
 
 //Escolta de tecles polsades
 document.addEventListener('keydown', logKey);
+
+//Funcions de Tecles:
 
 function logKey(e){
     if (e.keyCode === 13){
         checkParaula();
     } else if (e.keyCode === 8){
-        paraula.pop();
-        document.getElementsByClassName('linia')[intents].children[paraula.length].innerText = "";
-    } else if ((e.keyCode >= 65 && e.keyCode <= 90) && paraula.length < 5){
+        buidaQuadre();
+    } else if (((e.keyCode >= 65 && e.keyCode <= 90) || e.keyCode == 191) && paraula.length < 5){
         ompleQuadre(e.key.toUpperCase());
-        paraula.push(e.key.toUpperCase())
     } 
+}
+
+function buidaQuadre(){
+    paraula.pop();
+    document.getElementsByClassName('linia')[intents].children[paraula.length].innerText = "";
 }
 
 //Quan es polsa una lletra, s'omple el quadre corresponent
@@ -82,11 +110,11 @@ function ompleQuadre(lletra){
     var liniaActual = document.getElementsByClassName('linia')[intents];
     var casellaActual = paraula.length;
     liniaActual.children[casellaActual].innerText = lletra;
+    paraula.push(lletra)
 }
 
 //Al polsar ENTER comprovem i la paraula és la correcta.
 function checkParaula(){
-    let mapaTemp = mapaResposta;
     var liniaActual = document.getElementsByClassName('linia')[intents];
     encerts = 0;
     if (paraula.length !== 5){
@@ -97,26 +125,35 @@ function checkParaula(){
         }, 300);
     } else {
         if (diccionari.includes(paraula.join(''))){
+            let mapaTemp = {...mapaResposta};
+
             for(let i = 0; i < 5; i++){
+                
                 setTimeout(()=>{
                     liniaActual.children[i].style.transform = "rotateY(90deg)";
                     setTimeout(() => {
                         if (paraula[i]=== resposta[i]){
                             liniaActual.children[i].classList.add('correcte');
+                            document.getElementById(paraula[i]).classList.add('correcte');
                             encerts++;
                             mapaTemp[paraula[i]]--;
-                        } 
-                        for(let j = 0; j < 5; j++){
-                            if (paraula[i] === resposta[j] && i !== j && mapaTemp[paraula[i]] > 0){
-                                liniaActual.children[i].classList.add('casi');
-                                mapaTemp[paraula[i]]--;
-                            }                       
+                        } else {
+                            for(let j = 0; j < 5; j++){
+                                console.log(mapaTemp)
+                                if (paraula[i] === resposta[j] && i !== j && mapaTemp[paraula[i]] > 0){
+                                    liniaActual.children[i].classList.add('casi');
+                                    document.getElementById(paraula[i]).classList.add('casi');
+                                    mapaTemp[paraula[i]]--;
+                                }                       
+                            }
+
                         }
                         }, 199);
                    
                     setTimeout(() => {
                         if(!liniaActual.children[i].classList.contains('correcte') && !liniaActual.children[i].classList.contains('casi') ){
                             liniaActual.children[i].classList.add('nope');
+                            document.getElementById(paraula[i]).classList.add('nope');
                         };
                         liniaActual.children[i].style.transform = "rotateY(0deg)";  
                     }, 201);

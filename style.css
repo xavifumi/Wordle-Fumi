@@ -2,9 +2,11 @@
 body {
   margin: 0;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: uppercase;
-  font-size: 2.2em;
+  font-size: 2em;
   font-weight: 700;
   font-family: "Raleway", sans-serif;
   background-color: #b8c6db;
@@ -13,6 +15,7 @@ body {
 
 h2 {
   padding: 0 5px;
+  margin: 10px 0;
   background-color: #f2cf07;
   background-image: linear-gradient(315deg, #f2cf07 0%, #55d284 74%);
   background-clip: text;
@@ -43,14 +46,54 @@ h2 {
 }
 .contenidor {
   margin-left: 5px;
-  width: 60px;
-  height: 60px;
+  width: 3rem;
+  height: 3rem;
   border: solid 2px grey;
   border-radius: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s;
+}
+
+#teclat {
+  align-self: center;
+  width: 50%;
+  margin-top: auto;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tecles {
+  display: flex;
+}
+
+.tecla {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 4rem;
+  margin: 0.2rem;
+  flex: 1;
+  border: solid 2px gray;
+  border-radius: 4px;
+  background-color: white;
+  font-size: 1.5rem;
+}
+
+.tecla:hover {
+  background-color: lightgray;
+}
+
+.tecla:active {
+  background-color: gray;
+}
+
+#fila2 .tecla:first-child,
+#fila2 .tecla:last-child {
+  flex: 1.5;
+  font-size: 1.2rem;
 }
 
 .correcte {
@@ -75,6 +118,32 @@ h2 {
   position: relative;
   animation: shake 0.1s linear;
   animation-iteration-count: 2;
+}
+
+@media only screen and (max-width: 1000px) {
+  body {
+    font-size: 4rem;
+  }
+
+  .contenidor {
+    border-width: 3px;
+    width: 7rem;
+    height: 7rem;
+  }
+
+  #teclat {
+    width: 95%;
+  }
+  .tecles {
+    margin-top: 10px;
+  }
+
+  .tecla {
+    height: 9rem;
+    margin: 0.2rem 0.5rem;
+    border-radius: 20px;
+    font-size: 3rem;
+  }
 }
 
 @keyframes shake {
