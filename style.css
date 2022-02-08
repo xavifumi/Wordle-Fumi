@@ -127,8 +127,8 @@ h2 {
 
   .contenidor {
     border-width: 3px;
-    width: 8rem;
-    height: 8rem;
+    width: 4rem;
+    height: 4rem;
   }
 
   #teclat {
@@ -136,13 +136,13 @@ h2 {
     bottom: 30px;
   }
   .tecles {
-    margin-top: 10px;
+    margin-top: 5px;
   }
 
   .tecla {
-    height: 9rem;
-    margin: 0.2rem 0.5rem;
-    border-radius: 20px;
+    height: 5rem;
+    margin: 0.2rem 0.2rem;
+    border-radius: 10px;
     font-size: 2rem;
   }
 }
