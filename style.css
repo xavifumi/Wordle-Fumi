@@ -51,7 +51,7 @@ h2 {
   /*width: 3rem;
   height: 3rem;*/
   flex: 1;
-  height: 1.8em;
+  aspect-ratio: 1/1;
   border: solid 2px grey;
   border-radius: 5px;
   display: flex;
@@ -136,7 +136,7 @@ h2 {
 
   .contenidor {
     border-width: 1px;
-    height: 1.7em;
+    aspect-ratio: 1 / 1;
   }
 
   #teclat {
