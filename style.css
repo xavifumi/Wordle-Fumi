@@ -28,7 +28,8 @@ h2 {
 .app {
   margin-left: auto;
   margin-right: auto;
-  width: fit-content;
+  width: 20%;
+  min-width: 300px;
   padding: 0 20px 15px 15px;
   display: flex;
   flex-direction: column;
@@ -42,12 +43,15 @@ h2 {
 
 .linia {
   display: flex;
+  width: 100%;
   margin-bottom: 5px;
 }
 .contenidor {
   margin-left: 5px;
-  width: 3rem;
-  height: 3rem;
+  /*width: 3rem;
+  height: 3rem;*/
+  flex: 1;
+  height: 1.8em;
   border: solid 2px grey;
   border-radius: 5px;
   display: flex;
@@ -73,7 +77,7 @@ h2 {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 4rem;
+  height: 3.5rem;
   margin: 0.2rem;
   flex: 1;
   border: solid 2px gray;
@@ -120,15 +124,19 @@ h2 {
   animation-iteration-count: 2;
 }
 
-@media only screen and (max-width: 1000px) and (orientation: portrait) {
+@media only screen and (max-width: 1000px) /*and (orientation: portrait) */ {
   body {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+  }
+
+  .app {
+    max-width: 275px;
+    width: 70%;
   }
 
   .contenidor {
     border-width: 1px;
-    width: 2rem;
-    height: 2rem;
+    height: 1.7em;
   }
 
   #teclat {
