@@ -5,6 +5,7 @@
     <title>Wordle Test</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 </head>
 <body>
 <div class="app">
@@ -50,6 +51,41 @@
         <div class="contenidor"></div>
         <div class="contenidor"></div>
         <div class="contenidor"></div>
+    </div>
+</div>
+<div id="modal">
+    <div id="modal-content">
+        <button id="modal-close" style="position:absolute; right:30px; top:30px" onclick="closeModal()">X</button>
+        <h2 style="text-align: center; font-size: 2em;">Benvinguts!</h2>
+        <p>Un Wordle és un joc d'endevinar paraules.<br>
+            Teniu sis oportunitats per encertar la paraula secreta de cinc lletres, escriviu la vostra proposta i polseu enter.<br><br>
+            El joc us mostrarà quines lletres heu encertat, quines són al mot però no són al lloc correcte i quines no són al mot secret.
+            <div class="linia" style="width:70%; margin: 5px auto;">
+                <div class="contenidor correcte">A</div>
+                <div class="contenidor casi">M</div>
+                <div class="contenidor nope">I</div>
+                <div class="contenidor nope">C</div>
+                <div class="contenidor correcte">S</div>
+            </div>
+            <div class="linia" style="width:70%; margin: 5px auto;">
+                <div class="contenidor correcte">A</div>
+                <div class="contenidor nope">R</div>
+                <div class="contenidor correcte">M</div>
+                <div class="contenidor correcte">E</div>
+                <div class="contenidor correcte">S</div>
+            </div>
+
+            <div class="linia" style="width:70%; margin: 0 auto;">
+                <div class="contenidor correcte">A</div>
+                <div class="contenidor correcte">D</div>
+                <div class="contenidor correcte">M</div>
+                <div class="contenidor correcte">E</div>
+                <div class="contenidor correcte">S</div>
+            </div>
+            <br>
+            I ja està!<br> Molta sort!
+            
+        </p>
     </div>
 </div>
 <!--<input type="text" id="noTeclat" style="height: 0; padding:0; border:none" autofocus>-->

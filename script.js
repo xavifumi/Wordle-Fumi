@@ -83,6 +83,11 @@ creaMapa();
 window.onload = function() {
  //   document.getElementById("noTeclat").focus();
     generaTecles();
+    document.getElementById('modal').style.display = 'block';
+}
+
+function closeModal(){
+    document.getElementById('modal').style.display = 'none';
 }
 
 //Escolta de tecles polsades
@@ -182,10 +187,30 @@ function checkParaula(){
 //Check si s'ha guanyat o perdut.
 function checkVictoria(){
     if(encerts === 5){
-        alert(`Enhorabona! Has encertat amb ${intents} intents!`)
+        confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 }
+          });
+       // alert(`Enhorabona! Has encertat amb ${intents} intents!`)
+       document.getElementById('modal-content').innerHTML = `
+       <button id="modal-close" style="position:absolute; right:30px; top:30px" onclick="closeModal()">X</button>
+       <h2 style="text-align: center; font-size: 2em;">Enhorabona!</h2>
+       <p>Has encertat amb ${intents} intents!</p>
+       
+       `
+       document.getElementById('modal').style.display = "block";
     } else {
         if (intents > 5){
-            alert("Has sobrepassat el nombre màxim d'intents.")
+            //alert("Has sobrepassat el nombre màxim d'intents. \n La paraula: " + resposta)
+            document.getElementById('modal-content').innerHTML = `
+            <button id="modal-close" style="position:absolute; right:30px; top:30px" onclick="closeModal()">X</button>
+            <h2 style="text-align: center; font-size: 2em; color:#f2cf07">Llàstima!</h2>
+            <p>Has sobrepassat el nombre màxim d'intents.<br>La paraula era:</p>
+            <h3 style="text-align: center">${resposta}</h3>
+            
+            `
+            document.getElementById('modal').style.display = "block";
         }
     }
 }
